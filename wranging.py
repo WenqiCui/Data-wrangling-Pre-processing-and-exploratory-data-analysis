@@ -6,7 +6,6 @@ Created on Mon Oct  8 15:09:15 2018
 """
 import urllib
 import csv
-import unicodedata
 table_count = 1;
 def printtable(table,count):
     doc_name="table_"+str(count)+".csv";
@@ -25,10 +24,16 @@ def printtable(table,count):
     for data in tab_data:
   
         for i in range(len(data)):
-            data[i] = unicodedata.normalize("NFKD", str(data[i]))
-            
+            data[i] = str(data[i]).replace(u'\\xc2\\xa0', u' ')
+            data[i] = str(data[i]).replace(u'\\n', u' ')
+            data[i] = str(data[i]).replace('b\'', u' ')
+            data[i] = str(data[i]).replace('\'', u' ')
         writer.writerow(data)
-
+       
+		
+		
+		
+		
 
 def geturl(acc):
     tem = acc.split("-")
