@@ -1,0 +1,4 @@
+FROM continuumio/anaconda3
+WORKDIR /user/src/app
+COPY . /user/src/app
+CMD [ "python", "a1problem2.py" ]
