@@ -163,6 +163,6 @@ except S3ResponseError:
     print("Invalid AWS_ACCESS_KEY_ID or AWS_SECRET_ACCESS_KEY")
 k = Key(bucket)
 k.key = "onedf.csv"
-k.set_contents_from_filename("data.zip")
+k.set_contents_from_filename("onedf.csv")
 k.key = "problem2_log.log"
-k.set_contents_from_filename("logger.log")
+k.set_contents_from_filename("problem2_log.log")
